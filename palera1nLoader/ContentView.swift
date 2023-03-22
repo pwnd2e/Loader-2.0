@@ -38,7 +38,7 @@ struct ContentView: View {
                             let platformname = d.getPlatformName() ?? "Unknown"
                             let platformver = d.getPlatformVersion() ?? "Unknown"
                             
-                            console.log("Welcome to palera1n loader 1.4.2-2")
+                            console.log("Welcome to palera1n loader 1.4.2 Universal")
                             console.log(uname())
                             console.log("\(machinename) running \(platformname) \(platformver) (\(modelarch))")
                             let tb = ToolbarStateMoment.s
