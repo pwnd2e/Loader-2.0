@@ -37,6 +37,7 @@
 		AAEF9D83291EEAC10089149B /* HostManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF9D7F291EEAC10089149B /* HostManagerBridge.m */; };
 		AAEF9D86291EEBF70089149B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF9D85291EEBF70089149B /* IOKit.framework */; };
 		AAEF9D8C291EEFF00089149B /* ViewFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF9D8B291EEFF00089149B /* ViewFlip.swift */; };
+		B10C6F0529CB66F5004D6E6E /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = B10C6F0429CB66F4004D6E6E /* Twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +94,7 @@
 		AAEF9D85291EEBF70089149B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		AAEF9D8B291EEFF00089149B /* ViewFlip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFlip.swift; sourceTree = "<group>"; };
 		AAEF9D93291EF22A0089149B /* bridging or something.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "bridging or something.h"; sourceTree = "<group>"; };
+		B10C6F0429CB66F4004D6E6E /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Twitter.png; path = "Assets.xcassets/palera1n-white.imageset/Twitter.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		AAEF9D5A291ED9F80089149B /* palera1nLoader */ = {
 			isa = PBXGroup;
 			children = (
+				B10C6F0429CB66F4004D6E6E /* Twitter.png */,
 				AAA741FB293D1CCA000243C2 /* palera1nLoader.entitlements */,
 				331E9B8D2932D07C00363FA9 /* Info.plist */,
 				AA95DB8929204FFC0055F1C0 /* Bootstrapping */,
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAEF9D60291ED9FB0089149B /* Assets.xcassets in Resources */,
+				B10C6F0529CB66F5004D6E6E /* Twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

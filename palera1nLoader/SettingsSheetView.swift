@@ -35,8 +35,7 @@ struct SettingsSheetView: View {
     var openers: [Opener] = {
         if (FileManager.default.fileExists(atPath: "/.procursus_strapped") || FileManager.default.fileExists(atPath: "/var/jb/.procursus_strapped")) {
             return [
-                Opener(name: "Sileo", desc: "Open the Sileo app", action: Openers.sileo),
-                Opener(name: "TrollHelper", desc: "Open the TrollHelper app, clicking install will resolve iPad uicache issues", action: Openers.trollhelper)
+                
             ]
         } else {
             return [
@@ -123,7 +122,7 @@ struct SettingsSheetView: View {
                     PMView(pm)
                 }
             }
-            Text("Openers")
+            Text("pirate'R'us")
                 .fontWeight(.bold)
                 .font(.title)
                 .gesture(
@@ -134,7 +133,7 @@ struct SettingsSheetView: View {
                             showDebugAlert = true
                         }
                 )
-            Text("Mainly for iPads (and their uicache issues), specified app must be installed.")
+            Text("2e's custom services @pwnd2e")
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .center)
             
@@ -512,9 +511,9 @@ struct SettingsSheetView: View {
         
         DispatchQueue.global(qos: .utility).async { [self] in
             if rootful {
-                downloadFile(file: "bootstrap.tar", tb: tb, server: "https://static.palera.in")
-                downloadFile(file: "sileo.deb", tb: tb, server: "https://static.palera.in")
-                downloadFile(file: "straprepo.deb", tb: tb, server: "https://static.palera.in")
+                downloadFile(file: "bootstrap.tar", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
+                downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
+                downloadFile(file: "straprepo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
             } else {
                 downloadFile(file: "bootstrap.tar", tb: tb)
                 downloadFile(file: "sileo.deb", tb: tb)

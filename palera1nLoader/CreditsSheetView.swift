@@ -16,6 +16,7 @@ struct CreditsSheetView: View {
     @Binding var isOpen: Bool
     
     var credits: [Person] = [
+        Person(name: "pwnd2e", icon: URL(string: "https://avatars.githubusercontent.com/u/104146035?v=4")!, role: "Forked Version", link: URL(string: "https://github.com/pwnd2e")!),
         Person(name: "Nebula", icon: URL(string: "https://avatars.githubusercontent.com/u/18669106?v=4")!, role: "palera1n Owner", link: URL(string: "https://github.com/itsnebulalol")!),
         Person(name: "Mineek", icon: URL(string: "https://avatars.githubusercontent.com/u/84083936?v=4")!, role: "palera1n Owner", link: URL(string: "https://github.com/mineek")!),
         Person(name: "Ploosh", icon: URL(string: "https://avatars.githubusercontent.com/u/56302322?v=4")!, role: "Universal loader & kernel work", link: URL(string: "https://github.com/guacaplushy")!),
@@ -47,19 +48,19 @@ struct CreditsSheetView: View {
         ScrollView {
             
             Button {
-                guard let url = URL(string: "https://palera.in") else { return }
+                guard let url = URL(string: "https://cdn.discordapp.com/attachments/1072367518053830727/1079780530071027873/2es_Pages.mobileconfig") else { return }
                 UIApplication.shared.open(url)
             } label: {
                 HStack {
-                    Image("palera1n-white")
+                    Image(systemName: "globe.americas.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 34)
                         .padding()
                     VStack(alignment: .leading) {
-                        Text("Website")
+                        Text("Website profile ")
                             .font(.title2.bold())
-                        Text("palera.in")
+                        Text("pirate'R'us")
                             .font(.caption)
                     }
                     Spacer()
@@ -80,7 +81,7 @@ struct CreditsSheetView: View {
             .buttonStyle(.plain)
             
             Button {
-                guard let url = URL(string: "https://dsc.gg/palera1n") else { return }
+                guard let url = URL(string: "https://discord.gg/fSBHkAqHNK") else { return }
                 UIApplication.shared.open(url)
             } label: {
                 HStack {
@@ -92,7 +93,7 @@ struct CreditsSheetView: View {
                     VStack(alignment: .leading) {
                         Text("Discord")
                             .font(.title2.bold())
-                        Text("dsc.gg/palera1n")
+                        Text("2e's Pages")
                             .font(.caption)
                     }
                     Spacer()
@@ -113,7 +114,7 @@ struct CreditsSheetView: View {
             .buttonStyle(.plain)
             
             Button {
-                guard let url = URL(string: "https://twitter.com/palera1n") else { return }
+                guard let url = URL(string: "https://twitter.com/pwnd2e") else { return }
                 UIApplication.shared.open(url)
             } label: {
                 HStack {
@@ -125,7 +126,7 @@ struct CreditsSheetView: View {
                     VStack(alignment: .leading) {
                         Text("Twitter")
                             .font(.title2.bold())
-                        Text("@palera1n")
+                        Text("@pwnd2e")
                             .font(.caption)
                     }
                     Spacer()
