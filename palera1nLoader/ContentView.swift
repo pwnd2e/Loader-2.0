@@ -114,7 +114,7 @@ struct ContentView: View {
     @ViewBuilder
     var titlebar: some View {
         VStack {
-            Text("palera1n")
+            Image("palera1n-white")
                 .font(.system(size: 48, weight: .bold))
                 .padding(8)
         }
