@@ -114,7 +114,7 @@ struct SettingsSheetView: View {
                                 showDebugAlert = true
                             }
                     )
-                Text("These options will (re)install your desired package manager. (triple tap for debug & bootstrap re-install)")
+                Text("These options will (re)install your desired package manager. (triple tap here for debug & bootstrap re-install)")
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
                 
