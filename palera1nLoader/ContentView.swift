@@ -14,8 +14,8 @@ struct ContentView: View {
     @State var bounds: CGSize? = nil
     @State var rfrAlert: Bool = false
 
-    private var serverURL = "https://static.palera.in/rootless"
-    private var serverURLRootful = "https://static.palera.in"
+    private var serverURL = "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader"
+    private var serverURLRootful = "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader"
     
     var body: some View {
         GeometryReader { geo in
