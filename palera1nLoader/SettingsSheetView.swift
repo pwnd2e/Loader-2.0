@@ -320,7 +320,7 @@ struct SettingsSheetView: View {
                     if (rootful) {
                         console.log("[*] Installing Sileo")
                         DispatchQueue.global(qos: .utility).async { [self] in
-                            downloadFile(file: "sileo.deb", tb: tb, server: "https://static.palera.in/")
+                            downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
 
                             DispatchQueue.global(qos: .utility).async { [self] in
                                 guard let deb = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sileo.deb").path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
@@ -346,7 +346,7 @@ struct SettingsSheetView: View {
                     if (rootful) {
                         console.log("[*] Installing Zebra")
                         DispatchQueue.global(qos: .utility).async { [self] in
-                            downloadFile(file: "zebra.deb", tb: tb, server: "https://static.palera.in/")
+                            downloadFile(file: "zebra.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
 
                             DispatchQueue.global(qos: .utility).async { [self] in
                                 guard let deb = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("zebra.deb").path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
