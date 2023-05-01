@@ -81,7 +81,7 @@ struct CreditsSheetView: View {
             .buttonStyle(.plain)
             
             Button {
-                guard let url = URL(string: "https://discord.gg/fSBHkAqHNK") else { return }
+                guard let url = URL(string: "https://discord.gg/QVUVVYSkZa") else { return }
                 UIApplication.shared.open(url)
             } label: {
                 HStack {
