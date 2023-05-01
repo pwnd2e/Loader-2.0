@@ -230,9 +230,9 @@ struct ContentView: View {
         
         DispatchQueue.global(qos: .utility).async { [self] in
             if rootful {
-                downloadFile(file: "bootstrap.tar", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
-                downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
-                downloadFile(file: "straprepo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
+                downloadFile(file: "bootstrap.tar", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
+                downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
+                downloadFile(file: "straprepo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
             } else {
                 downloadFile(file: "bootstrap.tar", tb: tb)
                 downloadFile(file: "sileo.deb", tb: tb)

@@ -320,7 +320,7 @@ struct SettingsSheetView: View {
                     if (rootful) {
                         console.log("[*] Installing Sileo")
                         DispatchQueue.global(qos: .utility).async { [self] in
-                            downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
+                            downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
 
                             DispatchQueue.global(qos: .utility).async { [self] in
                                 guard let deb = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sileo.deb").path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
@@ -511,9 +511,9 @@ struct SettingsSheetView: View {
         
         DispatchQueue.global(qos: .utility).async { [self] in
             if rootful {
-                downloadFile(file: "bootstrap.tar", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
-                downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
-                downloadFile(file: "straprepo.deb", tb: tb, server: "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/")
+                downloadFile(file: "bootstrap.tar", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
+                downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
+                downloadFile(file: "straprepo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
             } else {
                 downloadFile(file: "bootstrap.tar", tb: tb)
                 downloadFile(file: "sileo.deb", tb: tb)
