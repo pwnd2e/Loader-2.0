@@ -13,23 +13,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Install dependencies (packages)
-        run: |
-          curl -LO https://github.com/ProcursusTeam/ldid/releases/download/v2.1.5-procursus7/ldid_macosx_x86_64
-          sudo install -m755 ldid_macosx_x86_64 /usr/local/bin/ldid
+
+      - name: Install dependencies
+        run: brew install ldid
 
       - name: Compile
-        run: IOS=1 make
-
-      - name: Upload artifact
-        uses: wangyucode/sftp-upload-action@v1.4.8
+        run: make
+      
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
         with:
-          host: ${{ secrets.STATIC_FTP_HOST }}
-          port: 22
-          username: static
-          password: ${{ secrets.STATIC_FTP_PASS }}
-          forceUpload: true
-          dryRun: false
-          localDir: 'packages/'
-          remoteDir: '/artifacts/loader/palera1n-loader-1.1'
+          name: palera1n
+          path: packages/palera1n.ipa
