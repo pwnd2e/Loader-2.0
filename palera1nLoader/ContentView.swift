@@ -14,8 +14,8 @@ struct ContentView: View {
     @State var bounds: CGSize? = nil
     @State var rfrAlert: Bool = false
 
-    private var serverURL = "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader"
-    private var serverURLRootful = "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader"
+    private var serverURL = "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/"
+    private var serverURLRootful = "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/"
     
     var body: some View {
         GeometryReader { geo in
@@ -167,7 +167,7 @@ struct ContentView: View {
         try? FileManager.default.removeItem(at: fileURL)
     }
 
-    private func downloadFile(file: String, tb: ToolbarStateMoment, server: String = "https://github.com/pwnd2e/loader-1.4.2/releases/download/palera1n-loader/") -> Void {
+    private func downloadFile(file: String, tb: ToolbarStateMoment, server: String = "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/") -> Void {
         console.log("[*] Downloading \(file)")
         deleteFile(file: file)
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
