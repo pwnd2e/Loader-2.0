@@ -18,10 +18,10 @@ jobs:
         run: brew install ldid
 
       - name: Compile
-        run: IOS=1
+        run: make
       
       - name: Upload IPA
         uses: actions/upload-artifact@v3
         with:
-           localDir: 'packages/'
-          remoteDir: '/artifacts/loader/palera1n.ipa'
+          name: palera1n
+          path: packages/palera1n.ipa
