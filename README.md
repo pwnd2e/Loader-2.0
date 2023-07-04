@@ -23,8 +23,5 @@
 
 
 
-# Repos
-All repos work because it uses normal Procursus and not rootless.
-- [Add](https://www.2escustomservices.com/pirate-R-us) You can add this repo for tweaks that wont bork your idevice
 
 
