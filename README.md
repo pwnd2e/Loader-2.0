@@ -1,30 +1,27 @@
+## palera1nLoader (lite)
+Just like universal branch, this is supposed to be something that offers same functionality while also being around 90% smaller.
 
-# 
-![palera1n-Header](https://user-images.githubusercontent.com/104146035/204871654-854b47a5-866b-41e1-aaab-8059cbfc4b9a.jpg)
+### Building
 
+Optional Flags:
+- TIPA=1 (outputs as .tipa)
+- NO_DMG=1 (does not build dmg)
 
+For iOS
+```
+make IOS=1
+```
 
+For tvOS (in development)
+```
+make TVOS=1
+```
+## Downloads
+Don't use unless you know what you're doing.
 
+https://static.palera.in/artifacts/loader/universal_lite/palera1nLoader.ipa
+https://static.palera.in/artifacts/loader/universal_lite/loader.dmg
 
-
-# This is a work in progress. by [pwnd2e@Twitter](https://twitter.com/pwnd2e) for this forked version of [palera1n loader](https://github.com/palera1n/loader)
-
-
-
-
-
-
-
-
-
-![Header](https://user-images.githubusercontent.com/104146035/227752882-cbdeed21-c156-411c-8d21-787926bc2ac4.png)
-
-
-
-
-
-# Repos
-All repos work because it uses normal Procursus and not rootless.
-- [Add](https://www.2escustomservices.com/pirate-R-us) You can add this repo for tweaks that wont bork your idevice
-
-
+(These links may not be accessible)
+https://static.palera.in/artifacts/loader/universal_lite/palera1nTVLoader.ipa
+https://static.palera.in/artifacts/loader/universal_lite/tvloader.dmg

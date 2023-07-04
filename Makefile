@@ -1,44 +1,65 @@
-LDID           = $(shell command -v ldid)
-STRIP          = $(shell command -v strip)
+TARGET_CODESIGN = $(shell which ldid)
+GIT_REV=$(shell git rev-parse --short HEAD)
 
-P1TMP          = $(TMPDIR)/palera1nloader
-P1_STAGE_DIR   = $(P1TMP)/stage
-P1_APP_DIR     = $(P1TMP)/Build/Products/Release-iphoneos/palera1nLoader.app
-P1_HELPER_PATH = $(P1TMP)/Build/Products/Release-iphoneos/palera1nHelper
+ifeq ($(IOS),1)
+	PLATFORM = iphoneos
+	NAME = palera1nLoader
+	VOLNAME = loader
+	RELEASE = Release-iphoneos
+	ARG = ios=1
+else ifeq ($(TVOS),1)
+	PLATFORM = appletvos
+	NAME = palera1nTVLoader
+	VOLNAME = tvloader
+	RELEASE = Release-tvos
+	ARG = tv=1
+else
+$(error Please specify either IOS=1 or TVOS=1)
+endif
 
-.PHONY: package
+P1_TMP         = $(TMPDIR)/$(NAME)
+P1_STAGE_DIR   = $(P1_TMP)/stage
+P1_APP_DIR 	   = $(P1_TMP)/Build/Products/$(RELEASE)/$(NAME).app
 
 package:
-	# Build
+	/usr/libexec/PlistBuddy -c "Set :REVISION ${GIT_REV}" "loader/palera1nLoader/Info.plist"
+
 	@set -o pipefail; \
-		xcodebuild -jobs $(shell sysctl -n hw.ncpu) -project 'palera1nLoader.xcodeproj' -scheme palera1nLoader -configuration Release -arch arm64 -sdk iphoneos -derivedDataPath $(P1TMP) \
-		CODE_SIGNING_ALLOWED=NO DSTROOT=$(P1TMP)/install ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO
-		
-	@set -o pipefail; \
-		xcodebuild -jobs $(shell sysctl -n hw.ncpu) -project 'palera1nLoader.xcodeproj' -scheme palera1nHelper -configuration Release -arch arm64 -sdk iphoneos -derivedDataPath $(P1TMP) \
-		CODE_SIGNING_ALLOWED=NO DSTROOT=$(P1TMP)/install ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO
-	
+		xcodebuild -jobs $(shell sysctl -n hw.ncpu) -project '$(VOLNAME)/palera1nLoader.xcodeproj' -scheme palera1nLoader -configuration Release -arch arm64 -sdk $(PLATFORM) -derivedDataPath $(P1_TMP) \
+		CODE_SIGNING_ALLOWED=NO DSTROOT=$(P1_TMP)/install ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO
 	@rm -rf Payload
 	@rm -rf $(P1_STAGE_DIR)/
 	@mkdir -p $(P1_STAGE_DIR)/Payload
-	@mv $(P1_APP_DIR) $(P1_STAGE_DIR)/Payload/palera1nLoader.app
-
-	# Package
-	@echo $(P1TMP)
+	@mv $(P1_APP_DIR) $(P1_STAGE_DIR)/Payload/$(NAME).app
+	@echo $(P1_TMP)
 	@echo $(P1_STAGE_DIR)
 
-	@mv $(P1_HELPER_PATH) $(P1_STAGE_DIR)/Payload/palera1nLoader.app/palera1nHelper
-	@$(STRIP) $(P1_STAGE_DIR)/Payload/palera1nLoader.app/palera1nLoader
-	@$(STRIP) $(P1_STAGE_DIR)/Payload/palera1nLoader.app/palera1nHelper
-	@$(LDID) -Sentitlements.plist $(P1_STAGE_DIR)/Payload/palera1nLoader.app/
-	@$(LDID) -Sentitlements.plist $(P1_STAGE_DIR)/Payload/palera1nLoader.app/palera1nHelper
+	@$(TARGET_CODESIGN) -Sentitlements.xml $(P1_STAGE_DIR)/Payload/$(NAME).app/
 	
-	@rm -rf $(P1_STAGE_DIR)/Payload/palera1nLoader.app/_CodeSignature
-
+	@rm -rf $(P1_STAGE_DIR)/Payload/$(NAME).app/_CodeSignature
 	@ln -sf $(P1_STAGE_DIR)/Payload Payload
-
 	@rm -rf packages
 	@mkdir -p packages
 
-	@zip -r9 packages/palera1n.ipa Payload
+ifeq ($(TIPA),1)
+	@zip -r9 packages/$(NAME).tipa Payload
+	#@7zz a -mx=9 packages/$(NAME).tipa Payload
+else
+	@zip -r9 packages/$(NAME).ipa Payload
+	#@7zz a -mx=9 packages/$(NAME).tipa Payload
+endif
+ifneq ($(NO_DMG),1)
+	@hdiutil create out.dmg -volname "$(VOLNAME)" -fs HFS+ -srcfolder Payload
+	@hdiutil convert out.dmg -format UDZO -imagekey zlib-level=9 -o packages/$(VOLNAME).dmg
+	@rm -rf out.dmg
+endif
 	@rm -rf Payload
+	@rm -rf $(P1_TMP)
+
+clean:
+	@rm -rf $(P1_STAGE_DIR)
+	@rm -rf packages
+	@rm -rf out.dmg
+	@rm -rf Payload
+	@rm -rf $(P1_TMP)
+

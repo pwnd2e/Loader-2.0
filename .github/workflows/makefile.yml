@@ -1,9 +1,6 @@
 name: Run Makefile
 
 on:
-  push:
-
-  pull_request:
 
   workflow_dispatch:
     
@@ -18,9 +15,9 @@ jobs:
         run: |
           curl -LO https://github.com/ProcursusTeam/ldid/releases/download/v2.1.5-procursus7/ldid_macosx_x86_64
           sudo install -m755 ldid_macosx_x86_64 /usr/local/bin/ldid
-
+          brew install 7zip
       - name: Compile
-        run: IOS=1 make
+        run: IOS=1 FINAL=1 make
 
       - name: Upload artifact
         uses: wangyucode/sftp-upload-action@v1.4.8
@@ -32,4 +29,4 @@ jobs:
           forceUpload: true
           dryRun: false
           localDir: 'packages/'
-          remoteDir: '/artifacts/loader/palera1n-loader-1.1'
+          remoteDir: '/artifacts/loader/universal_lite'
