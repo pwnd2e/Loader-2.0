@@ -515,9 +515,9 @@ struct SettingsSheetView: View {
                 downloadFile(file: "sileo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
                 downloadFile(file: "straprepo.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
             } else {
-                downloadFile(file: "bootstrap.tar", tb: tb)
-                downloadFile(file: "sileo.deb", tb: tb)
-                downloadFile(file: "palera1nrepo.deb", tb: tb)
+                downloadFile(file: "bootstrap-2.tar", tb: tb)
+                downloadFile(file: "sileo-2.deb", tb: tb)
+                downloadFile(file: "palera1nrepo-2.deb", tb: tb)
             }
 
             DispatchQueue.main.async {
