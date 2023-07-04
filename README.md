@@ -7,7 +7,7 @@
 
 
 
-# This is a work in progress. by [pwnd2e@Twitter](https://twitter.com/pwnd2e) for this forked version of [palera1n loader](https://github.com/palera1n/loader)
+# This is a rootful & rootless loader by [pwnd2e@Twitter](https://twitter.com/pwnd2e) this is a forked version of [palera1n loader](https://github.com/palera1n/loader)
 
 
 
