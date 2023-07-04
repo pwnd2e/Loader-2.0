@@ -24,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: palera1n
-          path: packages/palera1n.ipa
+          path: /artifacts/loader/palera1n.ipa
