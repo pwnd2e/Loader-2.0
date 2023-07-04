@@ -23,5 +23,5 @@ jobs:
       - name: Upload IPA
         uses: actions/upload-artifact@v3
         with:
-          name: palera1n
-          path: '/artifacts/loader/palera1n.ipa'
+           localDir: 'packages/'
+          remoteDir: '/artifacts/loader/palera1n.ipa'
