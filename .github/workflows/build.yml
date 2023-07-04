@@ -18,7 +18,7 @@ jobs:
         run: brew install ldid
 
       - name: Compile
-        run: make
+        run: IOS=1
       
       - name: Upload IPA
         uses: actions/upload-artifact@v3
