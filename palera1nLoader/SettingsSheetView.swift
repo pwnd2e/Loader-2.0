@@ -396,6 +396,8 @@ struct SettingsSheetView: View {
                         }
                     }
                 }
+            case .saily:
+                <#code#>
             }
         } label: {
             HStack {
