@@ -30,7 +30,9 @@ struct SettingsSheetView: View {
     var packagemanagers: [PackageManager] = [
         PackageManager(name: "Sileo", desc: "Modern package manager (recommended)", action: PackageManagers.sileo),
         PackageManager(name: "Zebra", desc: "Cydia-ish look and feel with modern features", action: PackageManagers.zebra),
+        PackageManager(name: "Saily", desc: "Cydia-ish look and feel with modern features", action: PackageManagers.zebra),
     ]
+    
     
     var openers: [Opener] = {
         if (FileManager.default.fileExists(atPath: "/.procursus_strapped") || FileManager.default.fileExists(atPath: "/var/jb/.procursus_strapped")) {
@@ -368,6 +370,32 @@ struct SettingsSheetView: View {
                             }
                         }
                     }
+            case .zebra:
+                if (rootful) {
+                    console.log("[*] Installing Saily")
+                    DispatchQueue.global(qos: .utility).async { [self] in
+                        downloadFile(file: "zebra.deb", tb: tb, server: "https://github.com/pwnd2e/Loader-2.0/releases/download/2.0-Universal/")
+
+                        DispatchQueue.global(qos: .utility).async { [self] in
+                            guard let deb = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Saily.deb").path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+                                let msg = "Failed to find Saily"
+                                console.error("[-] \(msg)")
+                                print("[palera1n] \(msg)")
+                                return
+                            }
+
+                            let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", deb], root: true)
+                            DispatchQueue.main.async {
+                                if ret != 0 {
+                                    console.error("[-] Failed to install Saily. Status: \(ret)")
+                                    return
+                                }
+
+                                console.success("[+] Installed Saily")
+                            }
+                        }
+                    }
+                }
             }
         } label: {
             HStack {
